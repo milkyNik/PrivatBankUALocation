@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		889117F21DDF705300D136D3 /* PBOffice.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F11DDF705300D136D3 /* PBOffice.m */; };
+		889117F61DDF70BC00D136D3 /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F51DDF70BC00D136D3 /* ServerObject.m */; };
+		889117F91DDF902600D136D3 /* PBInfrastructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F81DDF902600D136D3 /* PBInfrastructure.m */; };
 		88FACDD71DDE00A200173196 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDD61DDE00A200173196 /* main.m */; };
 		88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDD91DDE00A200173196 /* AppDelegate.m */; };
 		88FACDDD1DDE00A200173196 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDDC1DDE00A200173196 /* ViewController.m */; };
@@ -21,6 +24,12 @@
 
 /* Begin PBXFileReference section */
 		5236463C9C26F65DA3B40A97 /* libPods-PrivatBankUALocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrivatBankUALocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		889117F01DDF705300D136D3 /* PBOffice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBOffice.h; sourceTree = "<group>"; };
+		889117F11DDF705300D136D3 /* PBOffice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBOffice.m; sourceTree = "<group>"; };
+		889117F41DDF70BC00D136D3 /* ServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerObject.h; sourceTree = "<group>"; };
+		889117F51DDF70BC00D136D3 /* ServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerObject.m; sourceTree = "<group>"; };
+		889117F71DDF902600D136D3 /* PBInfrastructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBInfrastructure.h; sourceTree = "<group>"; };
+		889117F81DDF902600D136D3 /* PBInfrastructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBInfrastructure.m; sourceTree = "<group>"; };
 		88FACDD21DDE00A200173196 /* PrivatBankUALocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivatBankUALocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FACDD61DDE00A200173196 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88FACDD81DDE00A200173196 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,6 +79,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		889117F31DDF705900D136D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				889117F41DDF70BC00D136D3 /* ServerObject.h */,
+				889117F51DDF70BC00D136D3 /* ServerObject.m */,
+				889117F71DDF902600D136D3 /* PBInfrastructure.h */,
+				889117F81DDF902600D136D3 /* PBInfrastructure.m */,
+				889117F01DDF705300D136D3 /* PBOffice.h */,
+				889117F11DDF705300D136D3 /* PBOffice.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		88FACDC91DDE00A200173196 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +118,7 @@
 				88FACDD91DDE00A200173196 /* AppDelegate.m */,
 				88FACDDB1DDE00A200173196 /* ViewController.h */,
 				88FACDDC1DDE00A200173196 /* ViewController.m */,
+				889117F31DDF705900D136D3 /* Models */,
 				88FACDF31DDE373A00173196 /* Server Manager */,
 				88FACDDE1DDE00A200173196 /* Main.storyboard */,
 				88FACDE11DDE00A200173196 /* Assets.xcassets */,
@@ -245,9 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889117F91DDF902600D136D3 /* PBInfrastructure.m in Sources */,
 				88FACDF21DDE372300173196 /* ServerManager.m in Sources */,
+				889117F61DDF70BC00D136D3 /* ServerObject.m in Sources */,
 				88FACDDD1DDE00A200173196 /* ViewController.m in Sources */,
 				88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */,
+				889117F21DDF705300D136D3 /* PBOffice.m in Sources */,
 				88FACDD71DDE00A200173196 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
