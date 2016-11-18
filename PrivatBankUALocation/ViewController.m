@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import <MapKit/MapKit.h>
+#import "ServerManager.h"
 
-@interface ViewController ()
+@interface ViewController () <MKMapViewDelegate>
+
+@property (strong, nonatomic) MKUserLocation* userLocation;
 
 @end
 
@@ -16,12 +20,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [[ServerManager sharedManager] getPBOfficeByCity:@"Харьков"
+                                           onSuccess:^(NSArray *users) {
+                                               
+                                           } onFailure:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Actions
+
+- (IBAction)actionEditTypeInfrastructure:(UISegmentedControl *)sender {
+    
+}
+
+#pragma mark - MKMapViewDelegate
+
+
 
 @end

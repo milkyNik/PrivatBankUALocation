@@ -13,9 +13,14 @@
 		88FACDE01DDE00A200173196 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDDE1DDE00A200173196 /* Main.storyboard */; };
 		88FACDE21DDE00A200173196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDE11DDE00A200173196 /* Assets.xcassets */; };
 		88FACDE51DDE00A200173196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDE31DDE00A200173196 /* LaunchScreen.storyboard */; };
+		88FACDED1DDE2A4500173196 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDEC1DDE2A4500173196 /* images */; };
+		88FACDEF1DDE2F4700173196 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FACDEE1DDE2F4700173196 /* MapKit.framework */; };
+		88FACDF21DDE372300173196 /* ServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDF11DDE372300173196 /* ServerManager.m */; };
+		9C42CA9AE283D423E2EDC0F8 /* libPods-PrivatBankUALocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236463C9C26F65DA3B40A97 /* libPods-PrivatBankUALocation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5236463C9C26F65DA3B40A97 /* libPods-PrivatBankUALocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrivatBankUALocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FACDD21DDE00A200173196 /* PrivatBankUALocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivatBankUALocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FACDD61DDE00A200173196 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88FACDD81DDE00A200173196 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +31,12 @@
 		88FACDE11DDE00A200173196 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88FACDE41DDE00A200173196 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88FACDE61DDE00A200173196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FACDEC1DDE2A4500173196 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		88FACDEE1DDE2F4700173196 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		88FACDF01DDE372300173196 /* ServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerManager.h; sourceTree = "<group>"; };
+		88FACDF11DDE372300173196 /* ServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerManager.m; sourceTree = "<group>"; };
+		CC0349090F1426BE6AB633B0 /* Pods-PrivatBankUALocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrivatBankUALocation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrivatBankUALocation/Pods-PrivatBankUALocation.debug.xcconfig"; sourceTree = "<group>"; };
+		EEC3E678E27EB3E3C2EE454D /* Pods-PrivatBankUALocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrivatBankUALocation.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrivatBankUALocation/Pods-PrivatBankUALocation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +44,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FACDEF1DDE2F4700173196 /* MapKit.framework in Frameworks */,
+				9C42CA9AE283D423E2EDC0F8 /* libPods-PrivatBankUALocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0815D24544094DC8235716A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88FACDEE1DDE2F4700173196 /* MapKit.framework */,
+				5236463C9C26F65DA3B40A97 /* libPods-PrivatBankUALocation.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41F4D54C801B10E95664955C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC0349090F1426BE6AB633B0 /* Pods-PrivatBankUALocation.debug.xcconfig */,
+				EEC3E678E27EB3E3C2EE454D /* Pods-PrivatBankUALocation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		88FACDC91DDE00A200173196 = {
 			isa = PBXGroup;
 			children = (
 				88FACDD41DDE00A200173196 /* PrivatBankUALocation */,
 				88FACDD31DDE00A200173196 /* Products */,
+				41F4D54C801B10E95664955C /* Pods */,
+				0815D24544094DC8235716A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +91,12 @@
 		88FACDD41DDE00A200173196 /* PrivatBankUALocation */ = {
 			isa = PBXGroup;
 			children = (
+				88FACDEC1DDE2A4500173196 /* images */,
 				88FACDD81DDE00A200173196 /* AppDelegate.h */,
 				88FACDD91DDE00A200173196 /* AppDelegate.m */,
 				88FACDDB1DDE00A200173196 /* ViewController.h */,
 				88FACDDC1DDE00A200173196 /* ViewController.m */,
+				88FACDF31DDE373A00173196 /* Server Manager */,
 				88FACDDE1DDE00A200173196 /* Main.storyboard */,
 				88FACDE11DDE00A200173196 /* Assets.xcassets */,
 				88FACDE31DDE00A200173196 /* LaunchScreen.storyboard */,
@@ -79,6 +114,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		88FACDF31DDE373A00173196 /* Server Manager */ = {
+			isa = PBXGroup;
+			children = (
+				88FACDF01DDE372300173196 /* ServerManager.h */,
+				88FACDF11DDE372300173196 /* ServerManager.m */,
+			);
+			name = "Server Manager";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88FACDE91DDE00A200173196 /* Build configuration list for PBXNativeTarget "PrivatBankUALocation" */;
 			buildPhases = (
+				CA940A509D98DB71088023B6 /* [CP] Check Pods Manifest.lock */,
 				88FACDCE1DDE00A200173196 /* Sources */,
 				88FACDCF1DDE00A200173196 /* Frameworks */,
 				88FACDD01DDE00A200173196 /* Resources */,
+				23F383EFF7A94514A27225C6 /* [CP] Embed Pods Frameworks */,
+				6C48936C52A651D31F7E4723 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FACDED1DDE2A4500173196 /* images in Resources */,
 				88FACDE51DDE00A200173196 /* LaunchScreen.storyboard in Resources */,
 				88FACDE21DDE00A200173196 /* Assets.xcassets in Resources */,
 				88FACDE01DDE00A200173196 /* Main.storyboard in Resources */,
@@ -144,11 +192,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23F383EFF7A94514A27225C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrivatBankUALocation/Pods-PrivatBankUALocation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C48936C52A651D31F7E4723 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrivatBankUALocation/Pods-PrivatBankUALocation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA940A509D98DB71088023B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88FACDCE1DDE00A200173196 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FACDF21DDE372300173196 /* ServerManager.m in Sources */,
 				88FACDDD1DDE00A200173196 /* ViewController.m in Sources */,
 				88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */,
 				88FACDD71DDE00A200173196 /* main.m in Sources */,
@@ -261,6 +358,7 @@
 		};
 		88FACDEA1DDE00A200173196 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC0349090F1426BE6AB633B0 /* Pods-PrivatBankUALocation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PrivatBankUALocation/Info.plist;
@@ -272,6 +370,7 @@
 		};
 		88FACDEB1DDE00A200173196 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEC3E678E27EB3E3C2EE454D /* Pods-PrivatBankUALocation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PrivatBankUALocation/Info.plist;
@@ -300,6 +399,7 @@
 				88FACDEB1DDE00A200173196 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
