@@ -15,7 +15,9 @@
 @interface ViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) MKUserLocation* userLocation;
+
 @property (strong, nonatomic) NSArray <PBOffice*> * offices;
+@property (strong, nonatomic) NSArray <PBInfrastructure*> * atms;
 
 
 @end
@@ -47,6 +49,24 @@
     
 }
 
+- (void) getATMsWithServer {
+    
+    [[ServerManager sharedManager] getPBATMByCity:@"Харьков"
+                                        onSuccess:^(NSArray *atms) {
+                                            
+                                            self.atms = atms;
+                                            
+                                        } onFailure:nil];
+    
+}
+
+
+- (void) getTSOsWithServer {
+    
+    
+    
+}
+
 #pragma mark - Actions
 
 - (IBAction)actionEditTypeInfrastructure:(UISegmentedControl *)sender {
@@ -55,7 +75,12 @@
         case 0:
             [self getOfficesWithServer];
             break;
-            
+        case 1:
+            [self getATMsWithServer];
+            break;
+        case 2:
+            [self getTSOsWithServer];
+            break;
         default:
             break;
     }

@@ -18,6 +18,8 @@
                  onSuccess:(void(^)(NSArray* offices)) success
                  onFailure:(void(^)(NSError* error)) failure;
 
-
+- (void) getPBATMByCity:(NSString*) city
+              onSuccess:(void(^)(NSArray* atms)) success
+              onFailure:(void(^)(NSError* error)) failure;
 
 @end

@@ -83,8 +83,40 @@
 
 }
 
+//s://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=
 
-
+- (void) getPBATMByCity:(NSString*) city
+              onSuccess:(void(^)(NSArray* atms)) success
+              onFailure:(void(^)(NSError* error)) failure {
+    
+    NSDictionary* params = @{@"city" : city};
+    
+    [self.requestSessionManager GET:@"infrastructure?json" parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray* arrayObjects = [responseObject allObjects];
+        
+        NSMutableArray* atms = [NSMutableArray array];
+        
+        for (id object in arrayObjects) {
+            
+            PBInfrastructure* atm = [[PBInfrastructure alloc] initWithServerResponse:object];
+            [atms addObject:atm];
+            
+        }
+        
+        NSLog(@"%@", atms);
+        
+        if (success) {
+            success(atms);
+        }
+        
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }];
+    
+    
+}
 
   
     
