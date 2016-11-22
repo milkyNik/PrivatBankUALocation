@@ -11,9 +11,12 @@
 
 @implementation PBInfrastructure
 
+
+
 - (id) initWithServerResponse:(id) response
 {
-    self = [super initWithServerResponse:response];
+    //self = [super initWithServerResponse:response];
+    self = [super init];
     if (self) {
         
         self.type           = [response valueForKey:@"type"];

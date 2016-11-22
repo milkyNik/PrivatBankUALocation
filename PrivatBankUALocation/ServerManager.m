@@ -91,9 +91,9 @@
     
     NSDictionary* params = @{@"city" : city};
     
-    [self.requestSessionManager GET:@"infrastructure?json" parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [self.requestSessionManager GET:@"infrastructure?json&atm" parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
-        NSArray* arrayObjects = [responseObject allObjects];
+        NSArray* arrayObjects = [responseObject valueForKey:@"devices"];
         
         NSMutableArray* atms = [NSMutableArray array];
         
@@ -114,10 +114,41 @@
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", [error localizedDescription]);
     }];
-    
-    
 }
 
+//ank.ua/p24api/infrastructure?json&tso&address=&city=
+
+
+- (void) getPBTSOByCity:(NSString*) city
+              onSuccess:(void(^)(NSArray* tsos)) success
+              onFailure:(void(^)(NSError* error)) failure {
+    
+    NSDictionary* params = @{@"city" : city};
+    
+    [self.requestSessionManager GET:@"infrastructure?json&tso" parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray* arrayObjects = [responseObject valueForKey:@"devices"];
+        
+        NSMutableArray* tsos = [NSMutableArray array];
+        
+        for (id object in arrayObjects) {
+            
+            PBInfrastructure* tso = [[PBInfrastructure alloc] initWithServerResponse:object];
+            [tsos addObject:tso];
+            
+        }
+        
+        NSLog(@"%@", tsos);
+        
+        if (success) {
+            success(tsos);
+        }
+        
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }];
+}
   
     
 

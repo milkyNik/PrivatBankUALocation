@@ -22,4 +22,8 @@
               onSuccess:(void(^)(NSArray* atms)) success
               onFailure:(void(^)(NSError* error)) failure;
 
+- (void) getPBTSOByCity:(NSString*) city
+              onSuccess:(void(^)(NSArray* tsos)) success
+              onFailure:(void(^)(NSError* error)) failure;
+
 @end

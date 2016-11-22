@@ -18,7 +18,7 @@
 
 @property (strong, nonatomic) NSArray <PBOffice*> * offices;
 @property (strong, nonatomic) NSArray <PBInfrastructure*> * atms;
-
+@property (strong, nonatomic) NSArray <PBInfrastructure*> * tsos;
 
 @end
 
@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.userLocation = self.mapView.userLocation;
     
 }
 
@@ -63,7 +63,12 @@
 
 - (void) getTSOsWithServer {
     
-    
+    [[ServerManager sharedManager] getPBTSOByCity:@"Харьков"
+                                        onSuccess:^(NSArray *tsos) {
+                                            
+                                            self.tsos = tsos;
+                                            
+                                        } onFailure:nil];
     
 }
 
