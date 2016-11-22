@@ -10,6 +10,7 @@
 		889117F21DDF705300D136D3 /* PBOffice.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F11DDF705300D136D3 /* PBOffice.m */; };
 		889117F61DDF70BC00D136D3 /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F51DDF70BC00D136D3 /* ServerObject.m */; };
 		889117F91DDF902600D136D3 /* PBInfrastructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F81DDF902600D136D3 /* PBInfrastructure.m */; };
+		889117FB1DDFAC9D00D136D3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 889117FA1DDFAC9D00D136D3 /* README.md */; };
 		88FACDD71DDE00A200173196 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDD61DDE00A200173196 /* main.m */; };
 		88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDD91DDE00A200173196 /* AppDelegate.m */; };
 		88FACDDD1DDE00A200173196 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDDC1DDE00A200173196 /* ViewController.m */; };
@@ -30,6 +31,7 @@
 		889117F51DDF70BC00D136D3 /* ServerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerObject.m; sourceTree = "<group>"; };
 		889117F71DDF902600D136D3 /* PBInfrastructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBInfrastructure.h; sourceTree = "<group>"; };
 		889117F81DDF902600D136D3 /* PBInfrastructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBInfrastructure.m; sourceTree = "<group>"; };
+		889117FA1DDFAC9D00D136D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88FACDD21DDE00A200173196 /* PrivatBankUALocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivatBankUALocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FACDD61DDE00A200173196 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88FACDD81DDE00A200173196 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		88FACDD41DDE00A200173196 /* PrivatBankUALocation */ = {
 			isa = PBXGroup;
 			children = (
+				889117FA1DDFAC9D00D136D3 /* README.md */,
 				88FACDEC1DDE2A4500173196 /* images */,
 				88FACDD81DDE00A200173196 /* AppDelegate.h */,
 				88FACDD91DDE00A200173196 /* AppDelegate.m */,
@@ -274,6 +277,7 @@
 				88FACDDD1DDE00A200173196 /* ViewController.m in Sources */,
 				88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */,
 				889117F21DDF705300D136D3 /* PBOffice.m in Sources */,
+				889117FB1DDFAC9D00D136D3 /* README.md in Sources */,
 				88FACDD71DDE00A200173196 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

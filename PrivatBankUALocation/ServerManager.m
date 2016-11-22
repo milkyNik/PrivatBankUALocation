@@ -8,6 +8,9 @@
 
 #import "ServerManager.h"
 #import "AFNetworking.h"
+#import "PBOffice.h"
+#import "PBInfrastructure.h"
+
 
 @interface ServerManager ()
 
@@ -56,20 +59,28 @@
     
     [self.requestSessionManager GET:@"pboffice?json" parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
-        //NSLog(@"JSON: %@", responseObject);
+        NSArray* arrayObjects = [responseObject allObjects];
         
-        NSArray* array = [responseObject valueForKey:@"address"];
+        NSMutableArray* offices = [NSMutableArray array];
         
-        NSLog(@"%@", array);
+        for (id object in arrayObjects) {
+            
+            PBOffice* office = [[PBOffice alloc] initWithServerResponse:object];
+            [offices addObject:office];
+            
+        }
+        
+        NSLog(@"%@", offices);
+        
+        if (success) {
+            success(offices);
+        }
         
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        NSLog(@"Error: %@", [error localizedDescription]);
     }];
-    
-    
 
- 
 }
 
 
