@@ -11,6 +11,7 @@
 		889117F61DDF70BC00D136D3 /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F51DDF70BC00D136D3 /* ServerObject.m */; };
 		889117F91DDF902600D136D3 /* PBInfrastructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F81DDF902600D136D3 /* PBInfrastructure.m */; };
 		889117FB1DDFAC9D00D136D3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 889117FA1DDFAC9D00D136D3 /* README.md */; };
+		88BC40971DE9E36000ED7971 /* UIView+MKAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC40961DE9E36000ED7971 /* UIView+MKAnnotationView.m */; };
 		88FACDD71DDE00A200173196 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDD61DDE00A200173196 /* main.m */; };
 		88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDD91DDE00A200173196 /* AppDelegate.m */; };
 		88FACDDD1DDE00A200173196 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDDC1DDE00A200173196 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 		889117F71DDF902600D136D3 /* PBInfrastructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBInfrastructure.h; sourceTree = "<group>"; };
 		889117F81DDF902600D136D3 /* PBInfrastructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBInfrastructure.m; sourceTree = "<group>"; };
 		889117FA1DDFAC9D00D136D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88BC40951DE9E36000ED7971 /* UIView+MKAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MKAnnotationView.h"; sourceTree = "<group>"; };
+		88BC40961DE9E36000ED7971 /* UIView+MKAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MKAnnotationView.m"; sourceTree = "<group>"; };
 		88FACDD21DDE00A200173196 /* PrivatBankUALocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivatBankUALocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FACDD61DDE00A200173196 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88FACDD81DDE00A200173196 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +97,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		88BC40981DE9E36B00ED7971 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				88BC40951DE9E36000ED7971 /* UIView+MKAnnotationView.h */,
+				88BC40961DE9E36000ED7971 /* UIView+MKAnnotationView.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		88FACDC91DDE00A200173196 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 				88FACDD91DDE00A200173196 /* AppDelegate.m */,
 				88FACDDB1DDE00A200173196 /* ViewController.h */,
 				88FACDDC1DDE00A200173196 /* ViewController.m */,
+				88BC40981DE9E36B00ED7971 /* Category */,
 				889117F31DDF705900D136D3 /* Models */,
 				88FACDF31DDE373A00173196 /* Server Manager */,
 				88FACDDE1DDE00A200173196 /* Main.storyboard */,
@@ -273,6 +286,7 @@
 			files = (
 				889117F91DDF902600D136D3 /* PBInfrastructure.m in Sources */,
 				88FACDF21DDE372300173196 /* ServerManager.m in Sources */,
+				88BC40971DE9E36000ED7971 /* UIView+MKAnnotationView.m in Sources */,
 				889117F61DDF70BC00D136D3 /* ServerObject.m in Sources */,
 				88FACDDD1DDE00A200173196 /* ViewController.m in Sources */,
 				88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */,
