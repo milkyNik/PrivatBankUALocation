@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88702D171DEAE4B200D3CE60 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 88702D161DEAE4B200D3CE60 /* pin.png */; };
 		889117F21DDF705300D136D3 /* PBOffice.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F11DDF705300D136D3 /* PBOffice.m */; };
 		889117F61DDF70BC00D136D3 /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F51DDF70BC00D136D3 /* ServerObject.m */; };
 		889117F91DDF902600D136D3 /* PBInfrastructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F81DDF902600D136D3 /* PBInfrastructure.m */; };
@@ -18,7 +19,6 @@
 		88FACDE01DDE00A200173196 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDDE1DDE00A200173196 /* Main.storyboard */; };
 		88FACDE21DDE00A200173196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDE11DDE00A200173196 /* Assets.xcassets */; };
 		88FACDE51DDE00A200173196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDE31DDE00A200173196 /* LaunchScreen.storyboard */; };
-		88FACDED1DDE2A4500173196 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 88FACDEC1DDE2A4500173196 /* images */; };
 		88FACDEF1DDE2F4700173196 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FACDEE1DDE2F4700173196 /* MapKit.framework */; };
 		88FACDF21DDE372300173196 /* ServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FACDF11DDE372300173196 /* ServerManager.m */; };
 		9C42CA9AE283D423E2EDC0F8 /* libPods-PrivatBankUALocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236463C9C26F65DA3B40A97 /* libPods-PrivatBankUALocation.a */; };
@@ -26,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		5236463C9C26F65DA3B40A97 /* libPods-PrivatBankUALocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrivatBankUALocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88702D161DEAE4B200D3CE60 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = images/pin.png; sourceTree = "<group>"; };
 		889117F01DDF705300D136D3 /* PBOffice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBOffice.h; sourceTree = "<group>"; };
 		889117F11DDF705300D136D3 /* PBOffice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBOffice.m; sourceTree = "<group>"; };
 		889117F41DDF70BC00D136D3 /* ServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerObject.h; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		88FACDE11DDE00A200173196 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88FACDE41DDE00A200173196 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88FACDE61DDE00A200173196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88FACDEC1DDE2A4500173196 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		88FACDEE1DDE2F4700173196 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88FACDF01DDE372300173196 /* ServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerManager.h; sourceTree = "<group>"; };
 		88FACDF11DDE372300173196 /* ServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerManager.m; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 		88FACDD41DDE00A200173196 /* PrivatBankUALocation */ = {
 			isa = PBXGroup;
 			children = (
+				88702D161DEAE4B200D3CE60 /* pin.png */,
 				889117FA1DDFAC9D00D136D3 /* README.md */,
-				88FACDEC1DDE2A4500173196 /* images */,
 				88FACDD81DDE00A200173196 /* AppDelegate.h */,
 				88FACDD91DDE00A200173196 /* AppDelegate.m */,
 				88FACDDB1DDE00A200173196 /* ViewController.h */,
@@ -222,8 +222,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88FACDED1DDE2A4500173196 /* images in Resources */,
 				88FACDE51DDE00A200173196 /* LaunchScreen.storyboard in Resources */,
+				88702D171DEAE4B200D3CE60 /* pin.png in Resources */,
 				88FACDE21DDE00A200173196 /* Assets.xcassets in Resources */,
 				88FACDE01DDE00A200173196 /* Main.storyboard in Resources */,
 			);

@@ -9,7 +9,7 @@
 #import "ServerObject.h"
 #import <MapKit/MapKit.h>
 
-@interface PBInfrastructure : ServerObject
+@interface PBInfrastructure : ServerObject <MKAnnotation>
 
 @property (strong, nonatomic) NSString* type;               //Тип устройства
 @property (strong, nonatomic) NSString* placeRu;            //Название места, где стоит банкомат на русском языке
@@ -24,9 +24,11 @@
 @property (strong, nonatomic) NSString* longitude;          //Координата местоположения. Долгота
 @property (strong, nonatomic) NSDictionary* tw;             //График работы
 
+#pragma mark - MKAnnotation protocol
 
-#warning CLLocationDegrees use?
-//@property (assign, nonatomic) CLLocationDegrees latitude1;           //Координата местоположения. Широта
-//@property (assign, nonatomic) CLLocationDegrees longitude1;          //Координата местоположения. Долгота
+@property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly, copy, nullable) NSString *title;
+@property (nonatomic, readonly, copy, nullable) NSString *subtitle;
+
 
 @end

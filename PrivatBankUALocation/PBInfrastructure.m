@@ -31,6 +31,17 @@
         self.latitude       = [response valueForKey:@"latitude"];
         self.longitude      = [response valueForKey:@"longitude"];
         self.tw             = [response valueForKey:@"tw"];
+        
+        CLLocationCoordinate2D location;
+        
+        location.latitude = [[response valueForKey:@"latitude"] doubleValue];
+        location.longitude = [[response valueForKey:@"longitude"] doubleValue];
+        
+        self.coordinate = location;
+        
+        //self.title = self.type;
+        
+        
 
     }
     return self;
