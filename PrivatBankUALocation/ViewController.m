@@ -19,13 +19,13 @@
 @property (strong, nonatomic) MKUserLocation* userLocation;
 @property (strong, nonatomic) NSString* cityName;
 
-//@property (strong, nonatomic) NSArray <PBOffice*> * offices;
-//@property (strong, nonatomic) NSArray <PBInfrastructure*> * atms;
-//@property (strong, nonatomic) NSArray <PBInfrastructure*> * tsos;
+@property (strong, nonatomic) NSArray <PBOffice*> * offices;
+@property (strong, nonatomic) NSArray <PBInfrastructure*> * atms;
+@property (strong, nonatomic) NSArray <PBInfrastructure*> * tsos;
 
-@property (strong, nonatomic) NSArray * offices;
-@property (strong, nonatomic) NSArray * atms;
-@property (strong, nonatomic) NSArray * tsos;
+//@property (strong, nonatomic) NSArray * offices;
+//@property (strong, nonatomic) NSArray * atms;
+//@property (strong, nonatomic) NSArray * tsos;
 
 @property (strong, nonatomic) CLGeocoder* geoCoder;
 
@@ -44,6 +44,8 @@
     self.geoCoder = [[CLGeocoder alloc] init];
     
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0.f, 32.f)];
     
     [SVProgressHUD showWithStatus:@"Подождите пожалуйста"
                          maskType:SVProgressHUDMaskTypeGradient];
@@ -185,21 +187,28 @@
 #pragma mark - Actions
 
 - (IBAction)actionEditTypeInfrastructure:(UISegmentedControl *)sender {
-    
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            [self getOfficesWithServer];
-            break;
-        case 1:
-            [self getATMsWithServer];
-            break;
-        case 2:
-            [self getTSOsWithServer];
-            break;
-        default:
-            break;
+        
+    if (self.cityName) {
+        
+        switch (sender.selectedSegmentIndex) {
+            case 0:
+                [self getOfficesWithServer];
+                break;
+            case 1:
+                [self getATMsWithServer];
+                break;
+            case 2:
+                [self getTSOsWithServer];
+                break;
+            default:
+                break;
+        }
+        
+    } else {
+        
+        [self viewAlertWithTitle:@"Ошибка" andMessage:@"Вероятно, Вы находитесь не в населенном пункте"];
+        
     }
-    
 }
 
 #pragma mark - MKMapViewDelegate
@@ -209,7 +218,6 @@
     [self getCityOnTheUserLocation:userLocation];
     
     [self viewMapRectWithUserLocation];
-    
     
 }
 
@@ -322,7 +330,7 @@
                             
                             if (error) {
                                 
-                                [self viewAlertWithTitle:@"Error!"
+                                [self viewAlertWithTitle:@"Ошибка!"
                                               andMessage:[error localizedDescription]];
                                 
                             } else {
@@ -331,7 +339,6 @@
                                 
                                 NSLog(@"%@", placemark.country);
                                 
-#warning Country check
                                 // Находится ли устройство в Украине. Так как за её пределами искать объекты Приват Банка не имеет ни малейшего смысла.
                                 
                                 if ([placemark.country isEqualToString:@"Украина"]) {

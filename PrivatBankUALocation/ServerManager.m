@@ -89,6 +89,9 @@
               onSuccess:(void(^)(NSArray* atms)) success
               onFailure:(void(^)(NSError* error)) failure {
     
+#warning Nil object
+    
+    
     NSDictionary* params = @{@"city" : city};
     
     [self.requestSessionManager GET:@"infrastructure?json&atm" parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
