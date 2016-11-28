@@ -11,13 +11,13 @@
 #import "ServerManager.h"
 #import "PBInfrastructure.h"
 #import "PBOffice.h"
-
+#import "SVProgressHUD.h"
 
 
 @interface ViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) MKUserLocation* userLocation;
-@property (strong, nonatomic) NSString* sityName;
+@property (strong, nonatomic) NSString* cityName;
 
 //@property (strong, nonatomic) NSArray <PBOffice*> * offices;
 //@property (strong, nonatomic) NSArray <PBInfrastructure*> * atms;
@@ -29,13 +29,13 @@
 
 @property (strong, nonatomic) CLGeocoder* geoCoder;
 
-
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     self.mapView.delegate = self;
     
@@ -44,6 +44,8 @@
     [self viewMapRect];
     
     self.geoCoder = [[CLGeocoder alloc] init];
+    
+    [SVProgressHUD show];
     
 }
 
@@ -60,6 +62,23 @@
 }
 
 #pragma mark - Support methods
+
+- (void) viewAlertWithTitle:(NSString*) title andMessage:(NSString*) message {
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* actionOk = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:nil];
+    
+    [alert addAction:actionOk];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+}
 
 - (void) viewMapRect {
     
@@ -94,7 +113,7 @@
     
     [self.mapView removeAnnotations:self.mapView.annotations];
 
-    [[ServerManager sharedManager] getPBOfficeByCity:@"Харьков"
+    [[ServerManager sharedManager] getPBOfficeByCity:self.cityName
                                            onSuccess:^(NSArray *offices) {
                                                
                                                weakSelf.offices = offices;
@@ -108,7 +127,7 @@
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     
-    [[ServerManager sharedManager] getPBATMByCity:@"Харьков"
+    [[ServerManager sharedManager] getPBATMByCity:self.cityName
                                         onSuccess:^(NSArray *atms) {
                                             
                                             weakSelf.atms = atms;
@@ -125,7 +144,7 @@
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     
-    [[ServerManager sharedManager] getPBTSOByCity:@"Харьков"
+    [[ServerManager sharedManager] getPBTSOByCity:self.cityName
                                         onSuccess:^(NSArray *tsos) {
                                             
                                             weakSelf.tsos = tsos;
@@ -192,6 +211,14 @@
 }
 
 #pragma mark - MKMapViewDelegate
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    
+    [self getCityOnTheUserLocation:userLocation];
+    
+    
+    
+}
 
 - (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     
@@ -285,53 +312,46 @@
 
 //city on the user's position
 
-- (void) getSityOnTheUserLocation:(MKUserLocation*) userLocation {
+- (void) getCityOnTheUserLocation:(MKUserLocation*) userLocation {
     
-    
-    CLLocationCoordinate2D coordinate = userLocation.location.coordinate;
-    CLLocation* location = [[CLLocation alloc] initWithLatitude:coordinate.latitude
-                                                      longitude:coordinate.longitude];
+    CLLocation* location = userLocation.location;
     
     if ([self.geoCoder isGeocoding]) {
         [self.geoCoder cancelGeocode];
     }
     
-    
     [self.geoCoder reverseGeocodeLocation:location
                         completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
                             
-                            NSString* message = nil;
+                            [SVProgressHUD dismiss];
                             
                             if (error) {
                                 
-                                message = [error localizedDescription];
+                                [self viewAlertWithTitle:@"Error!"
+                                              andMessage:[error localizedDescription]];
                                 
                             } else {
                                 
                                 CLPlacemark* placemark = [placemarks firstObject];
                                 
-                                //message = [placemark.addressDictionary description];
-                                //message = ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO);
+                                NSLog(@"%@", placemark.country);
                                 
-                                message = [NSString stringWithFormat:@"%@", placemark.addressDictionary];
+#warning Country check
+                                // Находится ли устройство в Украине. Так как за её пределами искать объекты Приват Банка не имеет ни малейшего смысла.
+                                
+                                if ([placemark.country isEqualToString:@"Украина"]) {
+                                    
+                                    self.cityName = placemark.locality;
+                                    NSLog(@"%@", self.cityName);
+                                    
+                                } else {
+                                    
+                                    [self viewAlertWithTitle:@"Местоположение"
+                                                  andMessage:@"Вы находитесь за пределами Украины. Возможна некорректная работа приложения."];
+                                    
+                                }
                             }
-                            
-                            
-                            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Location"
-                                                                                           message:message
-                                                                                    preferredStyle:UIAlertControllerStyleAlert];
-                            
-                            UIAlertAction* actionOk = [UIAlertAction actionWithTitle:@"OK"
-                                                                               style:UIAlertActionStyleCancel
-                                                                             handler:nil];
-                            
-                            [alert addAction:actionOk];
-                            
-                            [self presentViewController:alert animated:YES completion:nil];
-                            
-                            
                         }];
-    
 }
 
 @end
