@@ -41,7 +41,7 @@
     
     self.userLocation = self.mapView.userLocation;
 
-    [self viewMapRect];
+    //[self viewMapRect];
     
     self.geoCoder = [[CLGeocoder alloc] init];
     
@@ -80,29 +80,20 @@
     
 }
 
-- (void) viewMapRect {
+- (void) viewMapRectWithUserLocation {
     
-    MKMapRect zoomRect = MKMapRectNull;
-    
-    //CLLocationCoordinate2D location = self.userLocation.coordinate; // берет координаты текущего пользователя
-    
-    // Для тестирования берем постоянные координаты города Харькова.
-    
-    CLLocation* userLocation = [[CLLocation alloc] initWithLatitude:49.99722 longitude:36.23333];
-    CLLocationCoordinate2D location = userLocation.coordinate;
-    
+    CLLocationCoordinate2D location = self.userLocation.coordinate; // берет координаты текущего пользователя
+
     MKMapPoint center = MKMapPointForCoordinate(location);
     
-    static double delta = 70000;
+    static double delta = 50000;
     
-    MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
-    
-    zoomRect = MKMapRectUnion(zoomRect, rect);
+    MKMapRect zoomRect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
     
     zoomRect = [self.mapView mapRectThatFits:zoomRect];
 
     [self.mapView setVisibleMapRect:zoomRect
-                        edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
+                        edgePadding:UIEdgeInsetsMake(0,0,0,0)
                            animated:YES];
 
 }
@@ -216,6 +207,7 @@
     
     [self getCityOnTheUserLocation:userLocation];
     
+    [self viewMapRectWithUserLocation];
     
     
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,14 +34,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ye-JF-0Tb">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ywi-x7-6Nh">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <connections>
-                                    <outlet property="delegate" destination="uvC-p3-7yU" id="ecT-e0-PAm"/>
+                                    <outlet property="delegate" destination="uvC-p3-7yU" id="p2C-pC-qaq"/>
                                 </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ywi-x7-6Nh" firstAttribute="top" secondItem="C01-zH-LlB" secondAttribute="bottom" id="7HJ-Vh-3ak"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ywi-x7-6Nh" secondAttribute="trailing" constant="-20" id="RZb-Ul-RtM"/>
+                            <constraint firstItem="ywi-x7-6Nh" firstAttribute="leading" secondItem="OoG-cT-0sc" secondAttribute="leadingMargin" constant="-20" id="Ugj-cN-PhY"/>
+                            <constraint firstItem="83a-3W-aYL" firstAttribute="top" secondItem="ywi-x7-6Nh" secondAttribute="bottom" id="nzP-c4-G7H"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AdA-Zt-AGh">
                         <nil key="title"/>
@@ -58,12 +65,12 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="7ye-JF-0Tb" id="rjN-ih-pG3"/>
+                        <outlet property="mapView" destination="ywi-x7-6Nh" id="x7q-1l-C0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQc-AQ-6mH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879" y="492"/>
+            <point key="canvasLocation" x="908" y="492"/>
         </scene>
     </scenes>
 </document>
