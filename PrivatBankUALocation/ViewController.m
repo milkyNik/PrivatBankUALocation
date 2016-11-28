@@ -40,12 +40,13 @@
     self.mapView.delegate = self;
     
     self.userLocation = self.mapView.userLocation;
-
-    //[self viewMapRect];
     
     self.geoCoder = [[CLGeocoder alloc] init];
     
-    [SVProgressHUD show];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    [SVProgressHUD showWithStatus:@"Подождите пожалуйста"
+                         maskType:SVProgressHUDMaskTypeGradient];
     
 }
 
@@ -316,6 +317,8 @@
                         completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
                             
                             [SVProgressHUD dismiss];
+                            
+                            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
                             
                             if (error) {
                                 
