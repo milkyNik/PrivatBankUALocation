@@ -12,6 +12,7 @@
 #import "PBInfrastructure.h"
 #import "PBOffice.h"
 #import "SVProgressHUD.h"
+#import "PBOfficesTableViewController.h"
 
 
 @interface ViewController () <MKMapViewDelegate>
@@ -42,12 +43,19 @@
     
     self.geoCoder = [[CLGeocoder alloc] init];
     
+    UIBarButtonItem* findButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(actionFindPBOffices:)];
+    
+    self.navigationItem.leftBarButtonItem = findButtonItem;
+
+    
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
     [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0.f, 32.f)];
     
     [SVProgressHUD showWithStatus:@"Подождите пожалуйста"
                          maskType:SVProgressHUDMaskTypeGradient];
+    
+    
     
 }
 
@@ -64,6 +72,16 @@
 }
 
 #pragma mark - Support methods
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Offices"]) {
+        
+        PBOfficesTableViewController* officesVC = (PBOfficesTableViewController *)segue.destinationViewController;
+        
+        [officesVC setOffices:_offices];
+    }
+}
 
 - (void) viewAlertWithTitle:(NSString*) title andMessage:(NSString*) message {
     
@@ -110,6 +128,7 @@
                                            onSuccess:^(NSArray *offices) {
                                                
                                                weakSelf.offices = offices;
+                                               weakSelf.officesButtonItem.enabled = YES;
                                                
                                            } onFailure:nil];
 }
@@ -185,18 +204,26 @@
 
 #pragma mark - Actions
 
+- (void) actionFindPBOffices:(UIBarButtonItem*) sender {
+    
+    if (self.cityName) {
+        [self getOfficesWithServer];
+    } else {
+        [self viewAlertWithTitle:@"Ошибка" andMessage:@"Вероятно, Вы находитесь не в населенном пункте"];
+    }
+    
+    
+}
+
 - (IBAction)actionEditTypeInfrastructure:(UISegmentedControl *)sender {
         
     if (self.cityName) {
         
         switch (sender.selectedSegmentIndex) {
             case 0:
-                [self getOfficesWithServer];
-                break;
-            case 1:
                 [self getATMsWithServer];
                 break;
-            case 2:
+            case 1:
                 [self getTSOsWithServer];
                 break;
             default:
@@ -208,6 +235,14 @@
         [self viewAlertWithTitle:@"Ошибка" andMessage:@"Вероятно, Вы находитесь не в населенном пункте"];
         
     }
+}
+
+- (IBAction)actionViewOffices:(UIBarButtonItem *)sender {
+    
+    NSLog(@"OK!");
+    
+    //[self performSegueWithIdentifier:@"Offices" sender:nil];
+    
 }
 
 #pragma mark - MKMapViewDelegate
@@ -354,5 +389,6 @@
                             }
                         }];
 }
+
 
 @end

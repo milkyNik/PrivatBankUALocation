@@ -55,7 +55,6 @@
                             <rect key="frame" x="170" y="7" width="260" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Отделения"/>
                                 <segment title="Банкоматы"/>
                                 <segment title="Терминалы"/>
                             </segments>
@@ -63,14 +62,58 @@
                                 <action selector="actionEditTypeInfrastructure:" destination="uvC-p3-7yU" eventType="valueChanged" id="tS3-cb-QH5"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Отделения" id="oPM-lz-D0Y">
+                            <connections>
+                                <action selector="actionViewOffices:" destination="uvC-p3-7yU" id="4Ue-d4-Re0"/>
+                                <segue destination="GLn-SM-Ly1" kind="show" identifier="Offices" id="Mz8-ze-gRc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="ywi-x7-6Nh" id="x7q-1l-C0d"/>
+                        <outlet property="officesButtonItem" destination="oPM-lz-D0Y" id="5FZ-HW-Zkr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQc-AQ-6mH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="492"/>
+            <point key="canvasLocation" x="938" y="492"/>
+        </scene>
+        <!--Offices Table View Controller-->
+        <scene sceneID="SXE-fE-Dlt">
+            <objects>
+                <tableViewController storyboardIdentifier="PBOfficesTableViewController" id="GLn-SM-Ly1" customClass="PBOfficesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CQA-3W-64s">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="VEv-T5-CKd" style="IBUITableViewCellStyleDefault" id="QP7-lg-9iB">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QP7-lg-9iB" id="nh1-3e-jKl">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VEv-T5-CKd">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GLn-SM-Ly1" id="OT2-t0-k2U"/>
+                            <outlet property="delegate" destination="GLn-SM-Ly1" id="vxX-Tz-T3o"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dgt-rK-6Fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1637" y="492"/>
         </scene>
     </scenes>
 </document>

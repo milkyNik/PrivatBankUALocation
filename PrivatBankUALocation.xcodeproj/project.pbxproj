@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88702D171DEAE4B200D3CE60 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 88702D161DEAE4B200D3CE60 /* pin.png */; };
+		888DD8791DEDF7CD002A1AA7 /* PBOfficesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 888DD8781DEDF7CD002A1AA7 /* PBOfficesTableViewController.m */; };
 		889117F21DDF705300D136D3 /* PBOffice.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F11DDF705300D136D3 /* PBOffice.m */; };
 		889117F61DDF70BC00D136D3 /* ServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F51DDF70BC00D136D3 /* ServerObject.m */; };
 		889117F91DDF902600D136D3 /* PBInfrastructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 889117F81DDF902600D136D3 /* PBInfrastructure.m */; };
@@ -27,6 +28,8 @@
 /* Begin PBXFileReference section */
 		5236463C9C26F65DA3B40A97 /* libPods-PrivatBankUALocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrivatBankUALocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88702D161DEAE4B200D3CE60 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = images/pin.png; sourceTree = "<group>"; };
+		888DD8771DEDF7CD002A1AA7 /* PBOfficesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBOfficesTableViewController.h; sourceTree = "<group>"; };
+		888DD8781DEDF7CD002A1AA7 /* PBOfficesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBOfficesTableViewController.m; sourceTree = "<group>"; };
 		889117F01DDF705300D136D3 /* PBOffice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBOffice.h; sourceTree = "<group>"; };
 		889117F11DDF705300D136D3 /* PBOffice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBOffice.m; sourceTree = "<group>"; };
 		889117F41DDF70BC00D136D3 /* ServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerObject.h; sourceTree = "<group>"; };
@@ -84,6 +87,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		888DD8761DEDF79B002A1AA7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				88FACDDB1DDE00A200173196 /* ViewController.h */,
+				88FACDDC1DDE00A200173196 /* ViewController.m */,
+				888DD8771DEDF7CD002A1AA7 /* PBOfficesTableViewController.h */,
+				888DD8781DEDF7CD002A1AA7 /* PBOfficesTableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		889117F31DDF705900D136D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +145,7 @@
 				889117FA1DDFAC9D00D136D3 /* README.md */,
 				88FACDD81DDE00A200173196 /* AppDelegate.h */,
 				88FACDD91DDE00A200173196 /* AppDelegate.m */,
-				88FACDDB1DDE00A200173196 /* ViewController.h */,
-				88FACDDC1DDE00A200173196 /* ViewController.m */,
+				888DD8761DEDF79B002A1AA7 /* ViewControllers */,
 				88BC40981DE9E36B00ED7971 /* Category */,
 				889117F31DDF705900D136D3 /* Models */,
 				88FACDF31DDE373A00173196 /* Server Manager */,
@@ -306,6 +319,7 @@
 				88FACDDD1DDE00A200173196 /* ViewController.m in Sources */,
 				88FACDDA1DDE00A200173196 /* AppDelegate.m in Sources */,
 				889117F21DDF705300D136D3 /* PBOffice.m in Sources */,
+				888DD8791DEDF7CD002A1AA7 /* PBOfficesTableViewController.m in Sources */,
 				889117FB1DDFAC9D00D136D3 /* README.md in Sources */,
 				88FACDD71DDE00A200173196 /* main.m in Sources */,
 			);

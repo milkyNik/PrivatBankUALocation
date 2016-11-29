@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
