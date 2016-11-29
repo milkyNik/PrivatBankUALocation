@@ -175,6 +175,7 @@
 				88FACDD01DDE00A200173196 /* Resources */,
 				23F383EFF7A94514A27225C6 /* [CP] Embed Pods Frameworks */,
 				6C48936C52A651D31F7E4723 /* [CP] Copy Pods Resources */,
+				888DD8751DEDC737002A1AA7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -196,6 +197,7 @@
 				TargetAttributes = {
 					88FACDD11DDE00A200173196 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9SV659AMF3;
 					};
 				};
 			};
@@ -261,6 +263,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrivatBankUALocation/Pods-PrivatBankUALocation-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		888DD8751DEDC737002A1AA7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 644c2a301caa67230ef61b732ff33af5ba34cd0d 362eb80c97ef691a2dae15feadf0192c24063ce4055d146cb650128c47e6cb51";
 		};
 		CA940A509D98DB71088023B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -405,6 +420,7 @@
 			baseConfigurationReference = CC0349090F1426BE6AB633B0 /* Pods-PrivatBankUALocation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PrivatBankUALocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hata.PrivatBankUALocation;
@@ -417,6 +433,7 @@
 			baseConfigurationReference = EEC3E678E27EB3E3C2EE454D /* Pods-PrivatBankUALocation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PrivatBankUALocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hata.PrivatBankUALocation;
