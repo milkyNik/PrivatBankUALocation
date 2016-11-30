@@ -16,5 +16,9 @@
 
 - (IBAction)actionEditTypeInfrastructure:(UISegmentedControl *)sender;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *officesButtonItem;
+
+- (IBAction)actionViewOffices:(UIBarButtonItem *)sender;
+
 @end
 
