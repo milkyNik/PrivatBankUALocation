@@ -38,22 +38,24 @@
     [super viewDidLoad];
     
     self.mapView.delegate = self;
+    self.mapView.showsCompass = YES;
+    
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0.f, 32.f)];
     
     self.userLocation = self.mapView.userLocation;
     
     self.geoCoder = [[CLGeocoder alloc] init];
     
+    
     UIBarButtonItem* findButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(actionFindPBOffices:)];
     
     self.navigationItem.leftBarButtonItem = findButtonItem;
-
+    
     
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
-    [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0.f, 32.f)];
-    
-    [SVProgressHUD showWithStatus:@"Подождите пожалуйста"
-                         maskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD showWithStatus:@"Подождите пожалуйста"];
     
     
     
@@ -118,6 +120,8 @@
 
 }
 
+#pragma mark - API Methods
+
 - (void) getOfficesWithServer {
     
     __weak ViewController* weakSelf = self;
@@ -126,6 +130,8 @@
 
     [[ServerManager sharedManager] getPBOfficeByCity:self.cityName
                                            onSuccess:^(NSArray *offices) {
+                                               
+                                               [SVProgressHUD showSuccessWithStatus:@"Отделения найдены" maskType:SVProgressHUDMaskTypeGradient];
                                                
                                                weakSelf.offices = offices;
                                                weakSelf.officesButtonItem.enabled = YES;
@@ -137,10 +143,14 @@
     
     __weak ViewController* weakSelf = self;
     
+    [SVProgressHUD showWithStatus:@"Подождите пожалуйста"];
+    
     [self.mapView removeAnnotations:self.mapView.annotations];
     
     [[ServerManager sharedManager] getPBATMByCity:self.cityName
                                         onSuccess:^(NSArray *atms) {
+                                            
+                                            [SVProgressHUD dismiss];
                                             
                                             weakSelf.atms = atms;
                                             [weakSelf addAnnotations:weakSelf.atms
@@ -154,10 +164,14 @@
     
     __weak ViewController* weakSelf = self;
     
+    [SVProgressHUD showWithStatus:@"Подождите пожалуйста"];
+    
     [self.mapView removeAnnotations:self.mapView.annotations];
     
     [[ServerManager sharedManager] getPBTSOByCity:self.cityName
                                         onSuccess:^(NSArray *tsos) {
+                                            
+                                            [SVProgressHUD dismiss];
                                             
                                             weakSelf.tsos = tsos;
                                             [weakSelf addAnnotations:weakSelf.tsos
@@ -169,36 +183,7 @@
 - (void) addAnnotations:(NSArray*) array InMap:(MKMapView*) map {
     
     [map addAnnotations:array];
-    
-    
-    
-    
-    /*
-    MKMapRect zoomRect = MKMapRectNull;
-    
-    for (id <MKAnnotation> annotation in map.annotations) {
-        
-        PBInfrastructure* pin = annotation;
-        
-        CLLocationCoordinate2D location = pin.coordinate;
-        
-        MKMapPoint center = MKMapPointForCoordinate(location);
-        
-        static double delta = 20000;
-        
-        MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
-        
-        zoomRect = MKMapRectUnion(zoomRect, rect);
-        
-    }
-    
-    zoomRect = [self.mapView mapRectThatFits:zoomRect];
-    
-    [self.mapView setVisibleMapRect:zoomRect
-                        edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
-                           animated:YES];
-     */
-    
+
 }
 
 
@@ -254,7 +239,7 @@
     [self viewMapRectWithUserLocation];
     
 }
-
+/*
 - (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
@@ -281,6 +266,7 @@
         
 
         UIButton* descriptionButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
         [descriptionButton addTarget:self
                               action:@selector(actionDescription:)
                     forControlEvents:UIControlEventTouchUpInside];
@@ -292,9 +278,40 @@
     }
     
     return pin;
+}*/
+
+- (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+#warning Не работает canShowCallout!!!! И нужно что-то сделать с картинкой для метки.
+    
+    static NSString* identifier = @"Annotation";
+    
+    MKAnnotationView* pin = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    
+    if (!pin) {
+        pin = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        pin.canShowCallout = YES;
+        
+        MKPinAnnotationView* standartPin = [[MKPinAnnotationView alloc] init];
+        standartPin.pinTintColor = [UIColor greenColor];
+        //pin.image = standartPin.image;
+        pin.image = [UIImage imageNamed:@"pin.png"];
+        
+        UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        [infoButton addTarget:self action:@selector(actionDescription:) forControlEvents:UIControlEventTouchUpInside];
+        
+        pin.rightCalloutAccessoryView = infoButton;
+        
+    } else {
+        pin.annotation = annotation;
+    }
+    
+    return pin;
 }
-
-
 
 #pragma mark - Actions
 
