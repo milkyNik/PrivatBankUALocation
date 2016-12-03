@@ -150,7 +150,7 @@
     [[ServerManager sharedManager] getPBATMByCity:self.cityName
                                         onSuccess:^(NSArray *atms) {
                                             
-                                            [SVProgressHUD dismiss];
+                                            [SVProgressHUD showSuccessWithStatus:nil];
                                             
                                             weakSelf.atms = atms;
                                             [weakSelf addAnnotations:weakSelf.atms
@@ -171,7 +171,7 @@
     [[ServerManager sharedManager] getPBTSOByCity:self.cityName
                                         onSuccess:^(NSArray *tsos) {
                                             
-                                            [SVProgressHUD dismiss];
+                                            [SVProgressHUD showSuccessWithStatus:nil];
                                             
                                             weakSelf.tsos = tsos;
                                             [weakSelf addAnnotations:weakSelf.tsos
@@ -297,8 +297,8 @@
         
         MKPinAnnotationView* standartPin = [[MKPinAnnotationView alloc] init];
         standartPin.pinTintColor = [UIColor greenColor];
-        //pin.image = standartPin.image;
-        pin.image = [UIImage imageNamed:@"pin.png"];
+        pin.image = standartPin.image;
+        //pin.image = [UIImage imageNamed:@"pin.png"];
         
         UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         
