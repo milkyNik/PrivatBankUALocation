@@ -189,6 +189,12 @@
 
 #pragma mark - Actions
 
+- (void) actionDescription:(UIButton*) sender {
+    
+    NSLog(@"actionDescription");
+    
+}
+
 - (void) actionFindPBOffices:(UIBarButtonItem*) sender {
     
     if (self.cityName) {
@@ -296,8 +302,11 @@
         pin.canShowCallout = YES;
         
         MKPinAnnotationView* standartPin = [[MKPinAnnotationView alloc] init];
+        
         standartPin.pinTintColor = [UIColor greenColor];
+        
         pin.image = standartPin.image;
+        
         //pin.image = [UIImage imageNamed:@"pin.png"];
         
         UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
@@ -311,14 +320,6 @@
     }
     
     return pin;
-}
-
-#pragma mark - Actions
-
-- (void) actionDescription:(UIButton*) sender {
-    
-    NSLog(@"actionDescription");
-        
 }
 
 #pragma mark - Geocoding
