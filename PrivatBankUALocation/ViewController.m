@@ -318,46 +318,7 @@
 - (void) actionDescription:(UIButton*) sender {
     
     NSLog(@"actionDescription");
-    
-    /*
-    MNStudent* annotation = [sender superAnnotationView].annotation;
-    
-    
-    DetailViewController* detailController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    detailController.modalPresentationStyle = UIModalPresentationPopover;
-    
-    
-    
-    CLLocationCoordinate2D coordinate = annotation.coordinate;
-    CLLocation* location = [[CLLocation alloc] initWithLatitude:coordinate.latitude
-                                                      longitude:coordinate.longitude];
-    
-    if ([self.geoCoder isGeocoding]) {
-        [self.geoCoder cancelGeocode];
-    }
-    
-    
-    [self.geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         
-        CLPlacemark* placemark = [placemarks firstObject];
-        
-        [self presentViewController:detailController animated:YES completion:nil];
-        
-        detailController.firstName.text = annotation.firstName;
-        detailController.lastName.text = annotation.lastName;
-        detailController.lastName.text = annotation.lastName;
-        detailController.gender.text = annotation.gender? @"Women":@"Man";
-        detailController.dateOfBirth.text = [annotation getDateOfBirth];
-        detailController.address.text = [NSString stringWithFormat:@"%@", placemark.addressDictionary];
-    }];
-    
-    UIPopoverPresentationController *popController = [detailController popoverPresentationController];
-    popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
-    popController.sourceView = sender;
-     
-     */
-    
-    
 }
 
 #pragma mark - Geocoding
