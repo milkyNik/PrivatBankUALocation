@@ -40,6 +40,8 @@
     self.mapView.delegate = self;
     self.mapView.showsCompass = YES;
     
+    
+    
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
     [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0.f, 32.f)];
     
